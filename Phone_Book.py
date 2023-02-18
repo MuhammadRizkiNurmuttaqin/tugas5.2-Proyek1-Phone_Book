@@ -3,6 +3,8 @@ import re
 
 # modul untuk menampilkan menu fitur
 def display_menu() :
+    print("\tMenu Fitur")
+    print("===========================")
     print("1. Tambah Kontak")
     print("2. Cari Kontak")
     print("3. Update Kontak")
@@ -22,6 +24,7 @@ def tambah_kontak(nama, nomor) :
             file.write("{}\n".format(nama+"\t\t\t"+nomor))
 
     print(f"# {nama} sudah di tambahkan kedalam kontak #")
+
 # modul untuk mencari kontak
 def cari_kontak(nama) :
     cek = False
@@ -32,7 +35,7 @@ def cari_kontak(nama) :
                 cek = True
     
     if cek != True:
-        print("Kontak yang dicari tidak ada")
+        print("Kontak yang dicari tidak ada\n")
 
 # modul untuk menghapus kontak        
 def hapus_kontak(nama):
@@ -44,6 +47,7 @@ def hapus_kontak(nama):
         for line in cari:
             if not line.startswith(hapus):
                 file.write(line)
+
 # modul untuk menampilkan semua kontak
 def tampil_semuakontak():
     with open("Kontak.txt",'r') as file:
@@ -55,7 +59,7 @@ def update_kontak(nama,nomor):
     if pilih == "Nama":
         with open("Kontak.txt",'r') as file:
             isiFile = file.read()
-        
+
         baru = input ("masukan nama yang baru : ")
         isiFile = isiFile.replace(nama,baru)
 
